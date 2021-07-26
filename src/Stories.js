@@ -9,9 +9,9 @@ function Story({data}) {
                 {data.title}
             </Link>
             <div role="presentation">
-                <Link to={{pathname: "/" + data.user.username + "/" + data.slug, state: data.id}} className="crayons-story__cover" title={data.title}  style={{backgroundImage: "url("+data.cover_image+")"}}>
+                {data.cover_image && <Link to={{pathname: "/" + data.user.username + "/" + data.slug, state: data.id}} className="crayons-story__cover" title={data.title}  style={{backgroundImage: "url("+data.cover_image+")"}}>
                     <span className="hidden">{data.title}</span>
-                </Link>
+                </Link>}
                 <div className="crayons-story__body">
                     <div className="crayons-story__top">
                         <div className="crayons-story__meta">
@@ -37,7 +37,7 @@ function Story({data}) {
                             </Link>
                         </h3>
                         <div className="crayons-story__tags">
-                            {data.tags.map(tag => <Link to={"/t/" + tag} key={tag}><span className="crayons-tag__prefix">#</span>{tag}</Link>)}
+                            {data.tag_list.map(tag => <Link to={"/t/" + tag} key={tag} className="crayons-tag"><span className="crayons-tag__prefix">#</span>{tag}</Link>)}
                         </div>
                         <div className="crayons-story__bottom">
                             <div className="crayons-story__details">
