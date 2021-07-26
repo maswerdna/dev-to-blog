@@ -21,6 +21,28 @@ function SearchBar() {
     )
 }
 
+function MenuBar({navToggler}) {
+    return (
+        <button onClick={navToggler} className="icon-btn cur-pt W mg-v0 mg-h8 bord-0 box-40 t:fx fx-j-center fx-a-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="a3xkri89y8zj0hr291vk98hif2361gt3" className="crayons-icon">
+                <title id="a3xkri89y8zj0hr291vk98hif2361gt3">Navigation menu</title>
+                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+            </svg>
+        </button>
+    )
+}
+
+function Logo() {
+    return (
+        <a href="/" className="flex fx-a-center" aria-label="DEV Community Home">
+            <svg width="50" height="40" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="50" height="40" rx="3" style={{fill: '#000'}}></rect>
+                <path d="M19.099 23.508c0 1.31-.423 2.388-1.27 3.234-.838.839-1.942 1.258-3.312 1.258h-4.403V12.277h4.492c1.31 0 2.385.423 3.224 1.27.846.838 1.269 1.912 1.269 3.223v6.738zm-2.808 0V16.77c0-.562-.187-.981-.562-1.258-.374-.285-.748-.427-1.122-.427h-1.685v10.107h1.684c.375 0 .75-.138 1.123-.415.375-.285.562-.708.562-1.27zM28.185 28h-5.896c-.562 0-1.03-.187-1.404-.561-.375-.375-.562-.843-.562-1.404V14.243c0-.562.187-1.03.562-1.404.374-.375.842-.562 1.404-.562h5.896v2.808H23.13v3.65h3.088v2.808h-3.088v3.65h5.054V28zm7.12 0c-.936 0-1.684-.655-2.246-1.965l-3.65-13.758h3.089l2.807 10.804 2.808-10.804H41.2l-3.65 13.758C36.99 27.345 36.241 28 35.305 28z" style={{fill: '#fff'}}></path>
+            </svg>
+        </a>
+    )
+}
+
 function Icons() {
     return (
         <div className="flex fx-a-center fh mg-la">
@@ -45,13 +67,35 @@ function Icons() {
                 </svg>
                 <span className="crayons-indicator crayons-indicator--critical hidden" id="notifications-number"></span>
             </a>
-            <div className="flex fx-a-center fh" id="">
-                <button type="button" className="pd2 bord-2 mg-h8 nav-image cur-pt W c-w b-r50pc" id="" aria-label="Navigation menu" aria-expanded="false">
-                    <span className="box-32 ov-h bl b-r50pc">
-                        <img className="fw fh" alt="" id="nav-profile-image" src="https://res.cloudinary.com/practicaldev/image/fetch/s--qqLY3aAA--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/643615/049e9a1c-b89a-495a-8205-a4e3114ab3cb.jpeg" />
-                    </span>
-                </button>
-                <div className="crayons-dropdown left-2 right-2 s:right-4 s:left-auto p-0 crayons-header__menu__dropdown inline-block"></div>
+        </div>
+    )
+}
+
+function ProfileButton() {
+    const [isExpanded, setIsExpanded] = useState(false);
+    function handleFocus(evt) {
+        switch (evt.type) {
+            case 'mouseenter':
+                setIsExpanded(true);
+                break;
+            case 'click':
+                setIsExpanded(state => !state);
+                break;
+            case 'mouseleave':
+                setIsExpanded(false);
+                break;
+            default:
+        }
+    }
+    return (
+        <div onMouseEnter={handleFocus} onMouseLeave={handleFocus} onClick={handleFocus} className={"flex fx-a-center fh crayons-header__menu" + (isExpanded ? ' hovered-button' : '')} id="">
+            <button type="button" className="pd2 bord-2 mg-h8 nav-image cur-pt W c-w b-r50pc" id="" aria-label="Navigation menu" aria-expanded="false">
+                <span className="box-32 ov-h bl b-r50pc">
+                    <img className="fw fh" alt="" id="nav-profile-image" src="https://res.cloudinary.com/practicaldev/image/fetch/s--qqLY3aAA--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/643615/049e9a1c-b89a-495a-8205-a4e3114ab3cb.jpeg" />
+                </span>
+            </button>
+            <div className="crayons-dropdown left-2 right-2 s:right-4 s:left-auto pd0 crayons-header__menu__dropdown bl">
+                <ProfileOptions />
             </div>
         </div>
     )
@@ -59,24 +103,20 @@ function Icons() {
 
 function ProfileOptions() {
     return (
-        <ul className="hd" id="">
+        <ul className="p0" id="crayons-header__menu__dropdown__list">
             <li id="user-profile-link-placeholder" className="border-0 border-b-1 border-solid border-base-20 p-1 mb-1">
-            <a id="first-nav-link" className="crayons-link crayons-link--block" href="/maswerdna">
-                <div>
-                <span className="fw-medium block">Samson Andrew</span>
-                <small className="fs-s color-base-50">@maswerdna</small>
-                </div>
-            </a>
+                <a id="first-nav-link" className="crayons-link crayons-link--block" href="/maswerdna">
+                    <div>
+                    <span className="b5 bl">Samson Andrew</span>
+                    <small className="fs-s color-base-50">@maswerdna</small>
+                    </div>
+                </a>
             </li>
 
-            <li className="px-1 js-header-menu-admin-link hidden">
-            <a href="/admin" className="crayons-link crayons-link--block" data-no-instant="">Admin</a>
-            </li>
             <li className="px-1"><a href="/dashboard" className="crayons-link crayons-link--block">Dashboard</a></li>
-            <li className="px-1"><a href="/mod" className="crayons-link crayons-link--block trusted-visible-block">Moderator Center</a></li>
             <li className="px-1"><a href="/new" className="crayons-link crayons-link--block">Create Post</a></li>
             <li className="px-1"><a href="/readinglist" className="crayons-link crayons-link--block">Reading list</a></li>
-            <li className="border-0 border-b-1 border-solid border-base-20 px-1 pb-1">
+            <li className="border-0 border-b-1 border-solid border-base-20 px-1 pb-1 last-link">
             <a href="/settings" className="crayons-link crayons-link--block" id="second-last-nav-link">Settings</a>
             </li>
 
@@ -90,25 +130,15 @@ function ProfileOptions() {
 
 
 
-function Header() {
+function Header({toggler}) {
     return (
         <header className="hdr W h-56 pos-f t0 l0 r0 z100">
             <div className="flex h-56 fx-a-center t:pd">
-                <button className="icon-btn cur-pt W mg-v0 mg-h8 bord-0 box-40 t:fx fx-j-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="a3xkri89y8zj0hr291vk98hif2361gt3" className="crayons-icon">
-                        <title id="a3xkri89y8zj0hr291vk98hif2361gt3">Navigation menu</title>
-                        <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
-                    </svg>
-                </button>
-                <a href="/" className="flex fx-a-center" aria-label="DEV Community Home">
-                    <svg width="50" height="40" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="50" height="40" rx="3" style={{fill: '#000'}}></rect>
-                        <path d="M19.099 23.508c0 1.31-.423 2.388-1.27 3.234-.838.839-1.942 1.258-3.312 1.258h-4.403V12.277h4.492c1.31 0 2.385.423 3.224 1.27.846.838 1.269 1.912 1.269 3.223v6.738zm-2.808 0V16.77c0-.562-.187-.981-.562-1.258-.374-.285-.748-.427-1.122-.427h-1.685v10.107h1.684c.375 0 .75-.138 1.123-.415.375-.285.562-.708.562-1.27zM28.185 28h-5.896c-.562 0-1.03-.187-1.404-.561-.375-.375-.562-.843-.562-1.404V14.243c0-.562.187-1.03.562-1.404.374-.375.842-.562 1.404-.562h5.896v2.808H23.13v3.65h3.088v2.808h-3.088v3.65h5.054V28zm7.12 0c-.936 0-1.684-.655-2.246-1.965l-3.65-13.758h3.089l2.807 10.804 2.808-10.804H41.2l-3.65 13.758C36.99 27.345 36.241 28 35.305 28z" style={{fill: '#fff'}}></path>
-                    </svg>
-                </a>
+                <MenuBar navToggler={toggler} />
+                <Logo />
                 <SearchBar />
                 <Icons />
-                <ProfileOptions />
+                <ProfileButton />
             </div>
         </header>
     )

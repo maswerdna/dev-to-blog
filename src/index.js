@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/dev-to-blog">
       <App />
     </BrowserRouter>
   </React.StrictMode>,

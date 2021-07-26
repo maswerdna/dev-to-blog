@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Listings() {
+function Listings({id}) {
     return (
-        <aside>
+        <aside id={id}>
             <section className="crayons-card crayons-card--secondary b-r5">
             <header className="crayons-card__header">
             <h3 className="crayons-subtitle-2">Listings</h3>

@@ -3,22 +3,21 @@ import {Route, Switch, useHistory, useLocation} from 'react-router-dom';
 import Home from './Home';
 import Article from './Article';
 import Search from './Search';
-/**
- * TODO
- * create header component
- * create side navigator 
- */
 
 function App() {
   const location = useLocation();//.substring(1);
   const history = useHistory();
-  // console.log(qpath);
+  // console.log(location);
   const [posts, setPosts] = useState([]);
   const [failure, setFailure] = useState(false);
   const [query, setQuery] = useState(location.pathname);
+  const [isShowing, setIsShowing] = useState(false);
   //
   function handleChange(event) {
     history.push(event.target.value);
+  }
+  function SideNavToggler() {
+    setIsShowing(isShowing => !isShowing);
   }
             //
   useEffect(() => {
@@ -52,20 +51,21 @@ function App() {
         setQuery('');
       }
     }
-    qpath && fetchArticles();
+    !isNaN(qpath) && fetchArticles();
   }, [location])
 
-  const data = {query, failure, posts, handleChange};
+  const navState = {SideNavToggler, isShowing};
+  const data = {query, failure, posts, handleChange, ...navState};
 
   return (
     <div className="App">
       <Switch>
-        <Route path="/dev-to-blog" render={() => <Home data={data} />} exact />
+        <Route path="/" render={() => <Home data={data} />} exact />
         <Route path="/top" render={() => <Home data={data} />} />
         <Route path="/latest" render={() => <Home data={data} />} />
         <Route path="/search" component={Search} />
 
-        <Route render={() => <Article />} />
+        <Route render={() => <Article data={navState} />} />
       </Switch>
     </div>
   );

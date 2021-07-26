@@ -4,19 +4,19 @@ import Header from './Header';
 import Stories from './Stories';
 import SideNav from './SideNav';
 import Listings from './Listings';
+import Hamburger from './Hamburger';
 
 function Home({data}) {
-    const {query, failure, posts, handleChange} = data;
+    const {query, failure, posts, handleChange, SideNavToggler, isShowing} = data;
     return (
         <>
-            <Header />
+            <Header toggler={SideNavToggler} />
+            <Hamburger toggler={SideNavToggler} show={isShowing} />
             <div id="page-content">
                 <div id="page-content-inner">
                     <div id="content-layout" className="grid-3-l-r">
-                        <div id="index-left">
-                            <SideNav />
-                        </div>
-                        <main id="index-main">
+                        <SideNav id="index-left" />
+                        <main id="main-content">
                             <Navbar query={query} onChange={handleChange} />
                             <div id="homepage-feed" style={{minHeight: '90vh'}}>
                                 <div id="rendered-article-feed">
@@ -24,9 +24,7 @@ function Home({data}) {
                                 </div>
                             </div>
                         </main>
-                        <div id="index-right">
-                            <Listings />
-                        </div>
+                        <Listings id="index-right" />
                     </div>
                 </div>
             </div>
