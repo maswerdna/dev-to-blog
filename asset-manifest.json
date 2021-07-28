@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.css": "/dev-to-blog/static/css/main.968785db.chunk.css",
-    "main.js": "/dev-to-blog/static/js/main.6ff57e6c.chunk.js",
-    "main.js.map": "/dev-to-blog/static/js/main.6ff57e6c.chunk.js.map",
-    "runtime-main.js": "/dev-to-blog/static/js/runtime-main.3b3a9497.js",
-    "runtime-main.js.map": "/dev-to-blog/static/js/runtime-main.3b3a9497.js.map",
-    "static/js/2.1ad7cf76.chunk.js": "/dev-to-blog/static/js/2.1ad7cf76.chunk.js",
-    "static/js/2.1ad7cf76.chunk.js.map": "/dev-to-blog/static/js/2.1ad7cf76.chunk.js.map",
-    "static/js/3.f37c744d.chunk.js": "/dev-to-blog/static/js/3.f37c744d.chunk.js",
-    "static/js/3.f37c744d.chunk.js.map": "/dev-to-blog/static/js/3.f37c744d.chunk.js.map",
+    "main.css": "/dev-to-blog/static/css/main.ed129437.chunk.css",
+    "main.js": "/dev-to-blog/static/js/main.fda4d801.chunk.js",
+    "main.js.map": "/dev-to-blog/static/js/main.fda4d801.chunk.js.map",
+    "runtime-main.js": "/dev-to-blog/static/js/runtime-main.73ddcaa8.js",
+    "runtime-main.js.map": "/dev-to-blog/static/js/runtime-main.73ddcaa8.js.map",
+    "static/js/2.450cc194.chunk.js": "/dev-to-blog/static/js/2.450cc194.chunk.js",
+    "static/js/2.450cc194.chunk.js.map": "/dev-to-blog/static/js/2.450cc194.chunk.js.map",
     "index.html": "/dev-to-blog/index.html",
-    "static/css/main.968785db.chunk.css.map": "/dev-to-blog/static/css/main.968785db.chunk.css.map",
-    "static/js/2.1ad7cf76.chunk.js.LICENSE.txt": "/dev-to-blog/static/js/2.1ad7cf76.chunk.js.LICENSE.txt"
+    "static/css/main.ed129437.chunk.css.map": "/dev-to-blog/static/css/main.ed129437.chunk.css.map",
+    "static/js/2.450cc194.chunk.js.LICENSE.txt": "/dev-to-blog/static/js/2.450cc194.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3b3a9497.js",
-    "static/js/2.1ad7cf76.chunk.js",
-    "static/css/main.968785db.chunk.css",
-    "static/js/main.6ff57e6c.chunk.js"
+    "static/js/runtime-main.73ddcaa8.js",
+    "static/js/2.450cc194.chunk.js",
+    "static/css/main.ed129437.chunk.css",
+    "static/js/main.fda4d801.chunk.js"
   ]
 }
