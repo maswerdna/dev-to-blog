@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 function SearchBar() {
     const history = useHistory();
@@ -21,7 +21,7 @@ function SearchBar() {
     )
 }
 
-function MenuBar({navToggler}) {
+function HamburgerTrigger({navToggler}) {
     return (
         <button onClick={navToggler} className="icon-btn cur-pt W mg-v0 mg-h8 bord-0 box-40 t:fx fx-j-center fx-a-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="a3xkri89y8zj0hr291vk98hif2361gt3" className="crayons-icon">
@@ -43,7 +43,7 @@ function Logo() {
     )
 }
 
-function Icons() {
+function ActionIcons() {
     return (
         <div className="flex fx-a-center fh mg-la">
             <a className="flex icon-btn box-40 pd8 mg-h4 t:hd" id="search-link" aria-label="Search" href="/search">
@@ -95,13 +95,13 @@ function ProfileButton() {
                 </span>
             </button>
             <div className="crayons-dropdown left-2 right-2 s:right-4 s:left-auto pd0 crayons-header__menu__dropdown bl">
-                <ProfileOptions />
+                <ProfileDropdown />
             </div>
         </div>
     )
 }
 
-function ProfileOptions() {
+function ProfileDropdown() {
     return (
         <ul className="p0" id="crayons-header__menu__dropdown__list">
             <li id="user-profile-link-placeholder" className="border-0 border-b-1 border-solid border-base-20 p-1 mb-1">
@@ -112,32 +112,27 @@ function ProfileOptions() {
                     </div>
                 </a>
             </li>
-
             <li className="px-1"><a href="/dashboard" className="crayons-link crayons-link--block">Dashboard</a></li>
             <li className="px-1"><a href="/new" className="crayons-link crayons-link--block">Create Post</a></li>
             <li className="px-1"><a href="/readinglist" className="crayons-link crayons-link--block">Reading list</a></li>
             <li className="border-0 border-b-1 border-solid border-base-20 px-1 pb-1 last-link">
-            <a href="/settings" className="crayons-link crayons-link--block" id="second-last-nav-link">Settings</a>
+                <a href="/settings" className="crayons-link crayons-link--block" id="second-last-nav-link">Settings</a>
             </li>
-
             <li className="px-1 py-1">
-            <a href="/signout_confirm" className="crayons-link crayons-link--block" id="last-nav-link">Sign Out</a>
+                <a href="/signout_confirm" className="crayons-link crayons-link--block" id="last-nav-link">Sign Out</a>
             </li>
         </ul>
     )
 }
 
-
-
-
 function Header({toggler}) {
     return (
         <header className="hdr W h-56 pos-f t0 l0 r0 z100">
             <div className="flex h-56 fx-a-center t:pd">
-                <MenuBar navToggler={toggler} />
+                <HamburgerTrigger navToggler={toggler} />
                 <Logo />
                 <SearchBar />
-                <Icons />
+                <ActionIcons />
                 <ProfileButton />
             </div>
         </header>

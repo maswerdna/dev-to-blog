@@ -719,17 +719,15 @@ small {
 }
 .grid-3-l-r {
   --layout-gap: 0;
-  --layout: 240px 2fr 1fr;
+  --layout: 100%;
+  --layout-padding: 0;
   font-size: 1rem;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
   grid-gap: var(--layout-gap);
-  grid-template-columns: var(--layout);
-  padding: 1rem;
-  /* --layout: 100%; */
-  /* padding: 0; */
+  padding: var(--layout-padding);
   grid-template-columns: var(--layout);
 }
 
@@ -1294,7 +1292,7 @@ article {
 }
 .crayons-card {
   border-radius: var(--radius);
-  background: var(--card-bg);
+  background: #f9fafa;
   color: var(--card-color);
   box-shadow: 0 0 0 1px var(--card-border);
   overflow-wrap: anywhere;
@@ -1735,18 +1733,16 @@ article {
     --layout: var(--layout-sidebar-left-width) var(--layout-content-width) var(--layout-sidebar-right-width);
   }
   .grid-3-l-r {
-    --layout-gap: var(--su-4);
-    --layout-sidebar-right-width: 3fr;
     --layout-sidebar-left-row-end: initial;
-    --layout-content-width: 7fr;
+    --layout-sidebar-right-display: block;
+    --layout-gap: var(--su-4);
+    --layout-sidebar-left-width: 240px;
+    --layout-content-width: 2fr;
+    --layout-sidebar-right-width: 1fr;
     --layout: var(--layout-sidebar-left-width) var(--layout-content-width) var(--layout-sidebar-right-width);
-  }
-  .grid-3-l-r {
-    --layout: 240px 2fr 1fr;
     grid-template-columns: var(--layout);
     grid-gap: var(--layout-gap);
     padding: 1rem;
     margin: 0 auto;
   }
-  
 }

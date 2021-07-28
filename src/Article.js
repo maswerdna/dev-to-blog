@@ -49,11 +49,11 @@ function Article({data}) {
     //
     const {SideNavToggler, isShowing} = data;
     return (
-        loading ? <div className="W tx-c pd20 b6 bord b-r5 mg-h16">Loading...</div> :
-        failed ? <div className="W tx-c pd20 b6 bord b-r5 mg-h16">An error occurred</div> :
         <>
-            <Header toggler={SideNavToggler} />
-            <Hamburger toggler={SideNavToggler} show={isShowing} />
+        <Header toggler={SideNavToggler} />
+        <Hamburger toggler={SideNavToggler} show={isShowing} />
+        {loading ? <div className="W tx-c pd20 b6 bord b-r5 mg-h16">Loading...</div> :
+        failed ? <div className="W tx-c pd20 b6 bord b-r5 mg-h16">An error occurred</div> :
             <div id="page-content">
                 <div id="page-content-inner">
                     <div id="content-layout" className="crayons-layout crayons-layout--3-cols crayons-layout--article">
@@ -209,37 +209,12 @@ function Article({data}) {
                                         </div>
                                     </div>
                                 </article>
-                                {/* <div className="presentation flex">
-                                    <div className="article b-r4 W">
-                                        <div className="cover">
-                                            <img src={article.cover_image} alt="" />
-                                        </div>
-                                        <div className="body pd20">
-                                            <h1 className="mg0 mg-b16 title">{article.title}</h1>
-                                            <div className="flex md mg-b16 grey">{article.tags.map(tag => <span key={tag} className="pd4 b-r4 mg-r8 bord">#{tag}</span>)}</div>
-                                            <div className="top flex fx-a-center">
-                                                <span className="user flex fx-a-center">
-                                                    <span className="left bord mg-r8">
-                                                        <img src={article.social_image} alt="" />
-                                                    </span>
-                                                    <span className="name b6 mg-r8">{article.user.name}</span>
-                                                </span>
-                                                <span className="time mg-r8">{article.readable_publish_date}</span> &bull; <span className="grey mg-l8">{article.reading_time_minutes} min read</span>
-                                            </div>
-                                            <div className="middle main pd20 lg">
-                                                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                                                    {article.body_markdown}
-                                                </ReactMarkdown>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
                             </div>
                         </main>
                         <Listings id="index-right" />
                     </div>
                 </div>
-            </div>
+            </div>}
         </>
     )
 }
