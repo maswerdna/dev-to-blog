@@ -1366,6 +1366,9 @@ article {
 .crayons-article__main {
   padding: var(--content-padding-y) var(--content-padding-x);
 }
+.crayons-article__body img {
+  width: 100%;
+}
 .text-styles {
   font-size: var(--content-font-size);
   font-family: var(--content-font-family);
